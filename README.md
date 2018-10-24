@@ -1,11 +1,5 @@
-shadowsocks-heroku
+ssr-heroku
 ==================
-
-shadowsocks-heroku is a lightweight tunnel proxy which can help you get through firewalls. It is a port of [shadowsocks](https://github.com/clowwindy/shadowsocks), but through a different protocol.
-
-shadowsocks-heroku uses WebSocket instead of raw sockets, so it can be deployed on [Heroku](https://www.heroku.com/).
-
-Notice that the protocol is INCOMPATIBLE with the origin shadowsocks.
 
 Heroku
 ------
@@ -14,8 +8,8 @@ Heroku
 
 ```
 $ heroku create
-Creating still-tor-8707... done, stack is cedar-14
-http://still-tor-8707.herokuapp.com/ | git@heroku.com:still-tor-8707.git
+Creating qwertt... done, stack is cedar-14
+http://qwertt.herokuapp.com/ | git@heroku.com:qwertt.git
 ```
 
 Push the code to Heroku.
@@ -25,9 +19,9 @@ $ git push heroku master
 …
 -----> Compressing... done, 5.1MB
 -----> Launching... done, v3
-       http://still-tor-8707.herokuapp.com/ deployed to Heroku
+       http://qwertt.herokuapp.com/ deployed to Heroku
 
-To git@heroku.com:still-tor-8707.git
+To git@heroku.com:qwertt.git
  * [new branch]      master -> master
 ```
 
@@ -35,7 +29,7 @@ Set a few configs:
 
 ```
 $ heroku config:set METHOD=rc4 KEY=foobar
-Setting config vars and restarting still-tor-8707... done, v11
+Setting config vars and restarting qwertt... done, v11
 KEY:    foobar
 METHOD: rc4
 ```
@@ -50,7 +44,7 @@ $ npm install
 Then run:
 
 ```
-$ node local.js -s still-tor-8707.herokuapp.com -l 1080 -m rc4 -k foobar -r 80
+$ node local.js -s qwertt.herokuapp.com -l 1080 -m rc4 -k foobar -r 80
 server listening at { address: '127.0.0.1', family: 'IPv4', port: 1080 }
 ```
 
@@ -65,7 +59,7 @@ SOCKS5 127.0.0.1:1080
 If there is something wrong, you can check the logs by:
 
 ```
-$ heroku logs -t --app still-tor-8707
+$ heroku logs -t --app qwertt
 ```
 
 Supported Ciphers
